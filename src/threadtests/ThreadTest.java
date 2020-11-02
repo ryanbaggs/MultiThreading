@@ -22,6 +22,16 @@ public class ThreadTest extends Thread {
 	 * console, and pauses for 250 milliseconds.
 	 */
 	private void test() {
+		int i = 0;
 		
+		while(i < 5000) {
+			i++;
+			try {
+				sleep(250);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				System.err.println(getName() + " Thread interrupted.");
+			}
+		}
 	}
 }

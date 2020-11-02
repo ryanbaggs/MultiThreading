@@ -12,7 +12,8 @@ import manager.ThreadManager;
 public class Menu extends MenuCreator {
 	
 	private String[] menuOptions = {"0. Exit.", "1. Test single Thread.", 
-			"2. Test single Runnable."};
+			"2. Test single Thread implements Runnable.", 
+			"3. Stop single Thread."};
 	private ThreadManager threadManager;
 	
 	public Menu() {
@@ -36,6 +37,8 @@ public class Menu extends MenuCreator {
 			case 2:
 				testSingleRunnable();
 				break;
+			case 3:
+				stopSingleThread();
 		}
 	}
 	
@@ -51,5 +54,12 @@ public class Menu extends MenuCreator {
 	 */
 	private void testSingleRunnable() {
 		threadManager.startSingleRunnable();
+	}
+	
+	/**
+	 * Requests ThreadManager to stop a Thread.
+	 */
+	private void stopSingleThread() {
+		threadManager.stopSingleThread();
 	}
 }
