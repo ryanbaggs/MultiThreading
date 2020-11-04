@@ -1,11 +1,10 @@
 package menu;
 
 /**
- * 
- * @author Ryan Baggs
- * Created on @date 01-Nov-2020
- *
  * Initializes the Menu.
+ * <p>
+ * @author Ryan Baggs
+ * @date Created on 01-Nov-2020
  */
 public class Main {
 

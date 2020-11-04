@@ -3,17 +3,16 @@ package menu;
 import manager.ThreadManager;
 
 /**
- * 
- * @author Ryan Baggs
- * Created on @date 01-Nov-2020
- *
  * Displays the Menu to the console allowing the user to select multiple options for desired actions.
+ * <p>
+ * @author Ryan Baggs
+ * @date Created on 01-Nov-2020
  */
 public class Menu extends MenuCreator {
 	
-	private String[] menuOptions = {"0. Exit.", "1. Test single Thread.", 
-			"2. Test single Thread implements Runnable.", 
-			"3. Stop single Thread."};
+	private String[] menuOptions = {"0. Exit.", "1. Test single thread.", 
+			"2. Display threads.", "3. Display all thread values", 
+			"4. Stop single thread.", "5. Stop all threads."};
 	private ThreadManager threadManager;
 	
 	public Menu() {
@@ -21,6 +20,8 @@ public class Menu extends MenuCreator {
 		
 		// Instantiate the ThreadManager.
 		threadManager = new ThreadManager();
+		
+		displayMenu();
 	}
 
 	@Override
@@ -35,10 +36,17 @@ public class Menu extends MenuCreator {
 				testSingleThread();
 				break;
 			case 2:
-				testSingleRunnable();
+				displayThreads();
 				break;
 			case 3:
+				displayValues();
+				break;
+			case 4:
 				stopSingleThread();
+				break;
+			case 5:
+				stopAllThreads();
+				break;
 		}
 	}
 	
@@ -50,10 +58,18 @@ public class Menu extends MenuCreator {
 	}
 	
 	/**
-	 * Requests ThreadManager to start a new RunnableTest.
+	 * Requests ThreadManager to display the Threads to the console.
 	 */
-	private void testSingleRunnable() {
-		threadManager.startSingleRunnable();
+	private void displayThreads() {
+		threadManager.displayThreads();
+	}
+	
+	/**
+	 * Requests ThreadManager to display all of the current values for all 
+	 * of the threads.
+	 */
+	private void displayValues() {
+		threadManager.displayValues();
 	}
 	
 	/**
@@ -61,5 +77,12 @@ public class Menu extends MenuCreator {
 	 */
 	private void stopSingleThread() {
 		threadManager.stopSingleThread();
+	}
+	
+	/**
+	 * Requests ThreadManager to stop all Threads.
+	 */
+	private void stopAllThreads() {
+		threadManager.stopAllThreads();
 	}
 }
